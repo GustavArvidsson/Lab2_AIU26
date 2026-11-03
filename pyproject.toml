@@ -7,7 +7,9 @@ authors = [
     { name = "Gustav Arvidsson", email = "gustavarvidsson04@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.11.2",
+]
 
 [project.scripts]
 lab2-aiu26 = "lab2_aiu26:main"
