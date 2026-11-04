@@ -16,4 +16,8 @@ class Circle:
     def translate(self, dx: float, dy: float):
         self.x += dx
         self.y += dy
-        
+
+    def __eq__(self, other):
+            if isinstance(other, Circle):
+                return (self.radius == other.radius)
+            return False
