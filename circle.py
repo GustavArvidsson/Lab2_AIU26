@@ -13,11 +13,33 @@ class Circle:
     def perimeter(self) -> float:
         return 2 * math.pi * self.radius
 
+    @property
+    def is_circle_unit(self) -> bool:
+         return self.radius == 1
+
     def translate(self, dx: float, dy: float):
         self.x += dx
         self.y += dy
+
+    def __str__(self):
+         return f"Circle has radius = {self.radius} and position: x = {self.x}, y = {self.y}"
+    def __repr__(self):
+         return f"Circle:(radius:{self.radius}, x:{self.x}, y:{self.y})"
+
 
     def __eq__(self, other):
             if isinstance(other, Circle):
                 return (self.radius == other.radius)
             return False
+    def __gt__(self, other):
+        if isinstance(other, Circle):
+             return(self.radius > other.radius)
+        return False
+    def __lt__(self, other):
+         if isinstance(other, Circle):
+              return(self.radius < other.radius)
+         return False
+    def __ge__(self, other):
+         if isinstance(other, Circle):
+              return(self.radius >= other.radius)
+         return False

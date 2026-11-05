@@ -18,11 +18,35 @@ class Rectangle:
         self.y += dy
         print(f"new position: ({self.x}, {self.y})")
 
-    def __eq__(self, other):
-        if isinstance(other, Rectangle):
-            return (self.width == other.width and
-                    self.height == other.height)
-        return False 
+    @property
+    def is_square(self) -> bool:
+        return self.width == self.height
 
     def __str__(self):
-        return f"Rectangle(width={self.width}, height={self.height}, x={self.x}, y={self.y})"
+        return f"Rectangle has size width={self.width}, height={self.height} and position x={self.x}, y={self.y}"
+    def __repr__(self):
+        return f"Rectangle:(width: {self.width}, height={self.height}, x:{self.x}, y:{self.y})"
+   
+    def __eq__(self, other):
+            if isinstance(other, Rectangle):
+                return (self.width == other.width and
+                        self.height == other.height)
+            return False 
+    def __gt__(self, other):
+        if isinstance(other, Rectangle):
+            return self.area > other.area
+        return False
+    def __lt__(self, other):
+        if isinstance(other, Rectangle):
+            return self.area < other.area
+        return False
+    def __ge__(self, other):
+        if isinstance(other, Rectangle):
+            return self.area >= other.area
+        return False
+    def __le__(self, other):
+        if isinstance(other, Rectangle):
+            return self.area <= other.area
+        return False
+
+   
