@@ -1,10 +1,24 @@
 import math
+
+
+def type_error(value, name):
+     if not isinstance(value, (int, float)):
+          raise TypeError(f"{name} must be a number")
+
+def number_error(value, name):
+     if value <= 0:
+          raise ValueError(f"{name} must be grater than zero")
+     
 class Circle:
     def __init__(self, radius: float, x: float = 0, y: float = 0):
-        self.radius = radius
-        self.x = x
-        self.y = y
-
+          type_error(radius, "radius")
+          number_error(radius, "radius")
+          type_error(x, "x")
+          type_error(y, "y")
+          self.radius = radius
+          self.x = x
+          self.y = y
+        
     @property
     def area(self) -> float:
         return math.pi * self.radius ** 2
@@ -18,6 +32,9 @@ class Circle:
          return self.radius == 1
 
     def translate(self, dx: float, dy: float):
+        type_error(dx, "x")
+        type_error(dy, "y")
+        
         self.x += dx
         self.y += dy
 

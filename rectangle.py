@@ -1,5 +1,22 @@
+
+def type_error(value, name):
+    if not isinstance(value, (int, float)):
+        raise TypeError(f"{name} must be a number")
+
+def number_error(value, name):
+    if value <= 0:
+        raise ValueError(f"{name} must be greater than zero")
+
 class Rectangle:
     def __init__(self, width: float, height: float, x: float = 0, y: float = 0):
+        type_error(width, "width")
+        type_error(height, "height") 
+        type_error(x, "x") 
+        type_error(y, "y") 
+
+        number_error(width, "width")
+        number_error(height, "height")
+       
         self.width = width
         self.height = height
         self.x = x
