@@ -7,7 +7,7 @@ def type_error(value, name):
 
 def number_error(value, name):
      if value <= 0:
-          raise ValueError(f"{name} must be grater than zero")
+          raise ValueError(f"{name} must be greater than zero")
      
 class Circle:
     def __init__(self, radius: float, x: float = 0, y: float = 0):
@@ -27,13 +27,12 @@ class Circle:
     def perimeter(self) -> float:
         return 2 * math.pi * self.radius
 
-    @property
     def is_circle_unit(self) -> bool:
          return self.radius == 1
 
     def translate(self, dx: float, dy: float):
-        type_error(dx, "x")
-        type_error(dy, "y")
+        type_error(dx, "dx")
+        type_error(dy, "dy")
         
         self.x += dx
         self.y += dy
@@ -60,3 +59,8 @@ class Circle:
          if isinstance(other, Circle):
               return(self.radius >= other.radius)
          return False
+    def __le__(self, other):
+         if isinstance(other, Circle):
+              return(self.radius <= other.radius)
+         
+         

@@ -31,11 +31,15 @@ class Rectangle:
         return 2 * (self.width + self.height)
 
     def translate(self, dx: float, dy: float):
+        type_error(dx, "dx")
+        type_error(dy, "dy")
+
         self.x += dx
         self.y += dy
-        print(f"new position: ({self.x}, {self.y})")
 
-    @property
+    def rotate_90(self) -> None:
+        self.width, self.height = self.height, self.width
+
     def is_square(self) -> bool:
         return self.width == self.height
 
