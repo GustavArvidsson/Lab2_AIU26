@@ -1,24 +1,14 @@
 import math
+from shape import Shape, type_error, number_error
 
 
-def type_error(value, name):
-     if not isinstance(value, (int, float)):
-          raise TypeError(f"{name} must be a number")
 
-def number_error(value, name):
-     if value <= 0:
-          raise ValueError(f"{name} must be greater than zero")
-     
-class Circle:
+class Circle(Shape):
     def __init__(self, radius: float, x: float = 0, y: float = 0):
+          super().__init__(x,y)
           type_error(radius, "radius")
           number_error(radius, "radius")
-          type_error(x, "x")
-          type_error(y, "y")
           self.radius = radius
-          self.x = x
-          self.y = y
-        
     @property
     def area(self) -> float:
         return math.pi * self.radius ** 2
@@ -30,13 +20,6 @@ class Circle:
     def is_circle_unit(self) -> bool:
          return self.radius == 1
 
-    def translate(self, dx: float, dy: float):
-        type_error(dx, "dx")
-        type_error(dy, "dy")
-        
-        self.x += dx
-        self.y += dy
-
     def __str__(self):
          return f"Circle has radius = {self.radius} and position: x = {self.x}, y = {self.y}"
     def __repr__(self):
@@ -47,20 +30,3 @@ class Circle:
             if isinstance(other, Circle):
                 return (self.radius == other.radius)
             return False
-    def __gt__(self, other):
-        if isinstance(other, Circle):
-             return(self.radius > other.radius)
-        return False
-    def __lt__(self, other):
-         if isinstance(other, Circle):
-              return(self.radius < other.radius)
-         return False
-    def __ge__(self, other):
-         if isinstance(other, Circle):
-              return(self.radius >= other.radius)
-         return False
-    def __le__(self, other):
-         if isinstance(other, Circle):
-              return(self.radius <= other.radius)
-         
-         
