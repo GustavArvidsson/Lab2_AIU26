@@ -22,3 +22,5 @@ class Shape2dPlotter:
         (rectangle.x - rectangle.width / 2, rectangle.y - rectangle.height / 2), width=rectangle.width, height=rectangle.height, fill=False, label=label, edgecolor=color)
         self.ax.add_patch(patch)
         self.ax.legend()
+    def show(self) -> None:
+        plt.show()
