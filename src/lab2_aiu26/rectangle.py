@@ -1,5 +1,5 @@
 import math
-from shape import Shape, type_error, number_error
+from .shape import Shape, type_error, number_error
 
 
 
