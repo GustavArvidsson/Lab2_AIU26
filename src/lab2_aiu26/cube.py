@@ -1,4 +1,4 @@
-from .shape3d import Shape3d, type_error, number_error
+from lab2_aiu26.shape3d import Shape3d, type_error, number_error
 
 class Cube(Shape3d):
     def __init__(self, side_length: float, x: float = 0, y: float = 0, z: float = 0):

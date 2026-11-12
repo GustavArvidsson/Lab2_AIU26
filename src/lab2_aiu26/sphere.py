@@ -1,4 +1,4 @@
-from .shape3d import Shape3d, type_error, number_error
+from lab2_aiu26.shape3d import Shape3d, type_error, number_error
 import math
 
 class Sphere(Shape3d):
